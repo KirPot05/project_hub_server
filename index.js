@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { graphqlHTTP } from "express-graphql";
-import { schema } from "./schema/index.js";
+import { schema } from "./graphql/schema/index.js";
 import connectDB from "./utils/db.js";
 
 const app = express();
@@ -17,7 +17,7 @@ app.use(
   })
 );
 
-connectDB();
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
+  connectDB();
 });
